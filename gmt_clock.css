@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+.clock-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: clamp(0.75rem, 3vw, 2rem);
+}
+
+.clock-screen__time {
+    margin: 0;
+    font-family: "DSEG7 Classic", "Orbitron", ui-monospace, monospace;
+    font-weight: 700;
+    font-size: clamp(3.5rem, 22vmin, 18rem);
+    line-height: 1;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    color: #00e8ff;
+    text-align: center;
+    user-select: none;
+}
+
+.glow-controls {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(0.75rem, 3vh, 1.5rem);
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem 0.85rem;
+    max-width: min(96vw, 42rem);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.glow-controls__slider-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem 1rem;
+    padding: 0.65rem 1rem 0.75rem;
+    max-width: min(96vw, 22rem);
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(0, 232, 255, 0.22);
+    border-radius: 999px;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.5),
+        0 8px 32px rgba(0, 40, 80, 0.45),
+        0 0 24px rgba(0, 200, 255, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.glow-controls__label {
+    font-family: "Orbitron", system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(0, 232, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.glow-controls__slider {
+    width: min(42vw, 11rem);
+    height: 0.35rem;
+    border-radius: 999px;
+    appearance: none;
+    background: linear-gradient(90deg, rgba(0, 60, 80, 0.9), rgba(0, 180, 220, 0.35));
+    outline: none;
+    cursor: pointer;
+}
+
+.glow-controls__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #e0ffff, #00e8ff 45%, #0088aa);
+    box-shadow:
+        0 0 8px rgba(0, 232, 255, 0.9),
+        0 0 20px rgba(0, 200, 255, 0.5);
+    cursor: grab;
+}
+
+.glow-controls__slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+.glow-controls__slider::-moz-range-thumb {
+    width: 1.1rem;
+    height: 1.1rem;
+    border: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #e0ffff, #00e8ff 45%, #0088aa);
+    box-shadow:
+        0 0 8px rgba(0, 232, 255, 0.9),
+        0 0 20px rgba(0, 200, 255, 0.5);
+    cursor: grab;
+}
+
+.glow-controls__btn {
+    font-family: "Orbitron", system-ui, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #001018;
+    padding: 0.45rem 0.85rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #5ff 0%, #00d4ee 40%, #0099bb 100%);
+    box-shadow:
+        0 0 12px rgba(0, 232, 255, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.glow-controls__btn:hover {
+    filter: brightness(1.08);
+}
+
+.glow-controls__btn:active {
+    transform: scale(0.97);
+}
+
+.glow-controls__btn:focus-visible {
+    outline: 2px solid rgba(0, 232, 255, 0.9);
+    outline-offset: 3px;
+}
+
+.glow-controls__slider:focus-visible {
+    outline: 2px solid rgba(0, 232, 255, 0.75);
+    outline-offset: 4px;
+    border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow-controls__btn:active {
+        transform: none;
+    }
+}

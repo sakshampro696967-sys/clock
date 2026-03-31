@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock — GMT+5:30</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/dseg7-classic@5.2.5/700.css">
+    <link rel="stylesheet" href="gmt_clock.css">
+</head>
+<body>
+    <main class="clock-screen" role="region" aria-label="Current time in India Standard Time, GMT plus five thirty">
+        <time id="timeDisplay" class="clock-screen__time" datetime="" aria-live="polite" aria-atomic="true">--:--:--</time>
+    </main>
+    <div class="glow-controls" role="toolbar" aria-label="Neon glow intensity">
+        <button type="button" id="glowMinBtn" class="glow-controls__btn">Least glow</button>
+        <div class="glow-controls__slider-panel">
+            <label class="glow-controls__label" for="glowSlider">Glow</label>
+            <input
+                id="glowSlider"
+                class="glow-controls__slider"
+                type="range"
+                min="0"
+                max="100"
+                step="0.5"
+                value="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="70"
+                aria-label="Glow intensity"
+            />
+        </div>
+        <button type="button" id="glowMaxBtn" class="glow-controls__btn">Max glow</button>
+    </div>
+    <script src="gmt_clock.js"></script>
+</body>
+</html>
